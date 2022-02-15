@@ -1,4 +1,4 @@
-""" Mogule to get Friends Locations with the use of Twitter API
+""" Module to get Friends Locations with the use of Twitter API
 and then convert their locations to coordinates
 """
 
@@ -33,7 +33,10 @@ class FriendsApi:
         r_j = response.json()
 
         if r_j.get('errors'):
-            raise Exception(f'Twitter API error: {r_j.get("errors")}')
+            raise Exception(f'Twitter API errors: {r_j.get("errors")}')
+
+        if r_j.get('error') is not None:
+            raise Exception(f'Twitter API error: {r_j.get("error")}')
 
         debug(response.text)
 

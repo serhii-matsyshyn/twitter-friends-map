@@ -11,7 +11,10 @@ class FriendsMap:
 
     def __init__(self, save_to: str = 'map.html'):
         self.save_to = save_to
-        self.map = folium.Map()
+        self.map = folium.Map(location=[40.876890, 14.259606],
+                              zoom_start=2,
+                              width='100%',
+                              height='75%')
 
     def save_map(self):
         """ Save map to html file"""
@@ -39,4 +42,4 @@ class FriendsMap:
 
         info("Created map")
 
-        return self.map
+        return self.map._repr_html_()
