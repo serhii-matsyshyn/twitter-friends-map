@@ -13,6 +13,8 @@ pip install -r requirements.txt
 ```
 Add environment variable SECRET_TWITTER_API_BEARER_TOKEN with your Twitter API bearer token.  
 Instruction on how to do it: https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/
+
+Main Flask file - friends_site.py
 ## Usage
 
 On the index page you can enter the Twitter account username and press "Create friends map!" button.  
