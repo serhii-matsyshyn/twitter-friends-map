@@ -22,7 +22,7 @@ class FriendsApi:
         self.headers = {'Authorization': f'Bearer {bearer_token}'}
         self.locations_coordinates = LocationsCoordinates()
 
-    def get_friends(self, username: str, count: int = 20):
+    def get_friends(self, username: str, count: int = 200):
         """ Make request to Twitter API to get user friends"""
         params = {'screen_name': username,
                   'count': count}
@@ -46,6 +46,7 @@ class FriendsApi:
         """ Get those user friends in Twitter that have location coordinates """
         friends = self.get_friends(username)
         friends_coordinates = []
+        print(len(friends['users']))
         for friend in friends['users']:
             latitude, longitude = self.locations_coordinates.get_place_location_approx(
                 friend['location']
@@ -53,7 +54,7 @@ class FriendsApi:
             debug(f"Friend: {friend['name']}, {latitude=}, {longitude=}")
 
             if latitude and longitude:
-                friend_coordinates = {"name": friend['name'],
+                friend_coordinates = {"name": friend['screen_name'],
                                       "location": friend['location'],
                                       "latitude": latitude,
                                       "longitude": longitude}

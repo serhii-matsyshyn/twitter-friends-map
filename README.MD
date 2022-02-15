@@ -1,6 +1,6 @@
 # Twitter friends map
 
-Site that creates map with locations of Twitter friends of provided account.  
+Site that creates map with locations of Twitter friends (up to 200 friends for quicker map generation) of provided account.  
 It is built with the use of Flask, Folium, Geopy and Twitter API.
 
 Link to the site: http://FriendsMap.pythonanywhere.com/
